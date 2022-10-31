@@ -27,12 +27,12 @@ if($recentChanson5 == null || count($recentChanson5) == 0) {
 }
 
 //top  1 album 
-$album1 = getMaxPlay($connexion, "song100", $album);
+$album1 = getMaxPlay($connexion, "song100", "album");
 if($album1 == null || count ($album1) ==0) {
     $message .= "No album";
 }
 //top  1 chanson 
-$chanson1 = getMaxPlay($connexion, "song100", $title);
+$chanson1 = getMaxPlay($connexion, "song100", "title");
 if($chanson1 == null || count ($chanson1) ==0) {
     $message .= "No chanson";
 }
