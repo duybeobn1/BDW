@@ -33,7 +33,7 @@ if ($nb <= 0) {
     </ul>
     <h2>Top 5 artist ecoute : </h2>
     <ul>
-        <?php foreach ($artist5 as $artist) { ?>
+        <?php foreach ($groupe5 as $artist) { ?>
         <li>
             <?= $artist['artist'] ?>
         </li>
