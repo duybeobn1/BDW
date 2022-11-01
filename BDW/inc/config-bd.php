@@ -10,6 +10,6 @@ else {
 	define('SERVEUR', 'localhost');
 	define('UTILISATRICE', 'p2208485'); // votre login, par exemple p1234567
 	define('MOTDEPASSE', 'Aspect66Briar'); // votre mot de passe, par exemple Abcd12Efgh
-	define('BDD', 'p2208485'); // votre BD, par exemple p1234567	
+	define('BDD', 'dataset'); // votre BD, par exemple p1234567	
 }
 ?>

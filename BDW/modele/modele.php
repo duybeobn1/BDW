@@ -29,30 +29,29 @@ function countInstances($connexion, $nomTable) {
 	return -1;  // valeur négative si erreur de requête (ex, $nomTable contient une valeur qui n'est pas une table)
 }
 function getInstances($connexion, $nomTable) {
-	$requete = "SELECT * FROM $nomTable";
+	$requete = "SELECT * FROM $nomTable ORDER BY artist";
 	$res = mysqli_query($connexion, $requete);
 	$instances = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $instances;
 }
-function getTop5Play($connexion, $nomTable) 
-{
-	$requete = "SELECT TOP(5) * FROM $nomTable ORDER BY playcout";
-	$res = mysqli_query($connexion, $requete);
-	$instances = mysqli_fetch_all($res, MYSQLI_ASSOC);
-	return $instances;
-}
-function getMaxPlay($connexion, $nomTable, $attribute) {
-	$requete = "SELECT MAX($attribute) FROM $nomTable ORDER BY playcout";
+function getInstances5($connexion, $nomTable) {
+	$requete = "SELECT * FROM $nomTable ORDER BY playcount LIMIT 5";
 	$res = mysqli_query($connexion, $requete);
 	$instances = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $instances;
 }
 
-function getPlusRecent($connexion, $nomTable) {
-	$requete = "SELECT TOP(5) * FROM $nomTable ORDER BY year";
+function getInstancesTop($connexion, $nomTable) {
+	$requete = "SELECT * FROM $nomTable ORDER BY playcount LIMIT 1";
 	$res = mysqli_query($connexion, $requete);
 	$instances = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $instances;
 }
+function insertValue($connexion, $titre, $dates, $duree, $nomFichier, $groupes, $genres) {
+	$requete = "INSERT INTO songs100 VALUES($titre, NULL, $groupes, NULL, $dates, $genres, NULL, $duree, $nomFichier, NULL, NULL, NULL, NULL)";
+	$res = mysqli_query($connexion, $requete);
+	return $res;
+}
+
 
 ?>
