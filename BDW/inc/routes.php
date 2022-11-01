@@ -7,10 +7,10 @@
 */
 
 $routes = array(
-	'afficher' => array('controleur' => 'controleurAfficher', 'vue' => 'vueAfficher'),
 	'ajouter' => array('controleur' => 'controleurAjouter', 'vue' => 'vueAjouter'),
-	'critiquer' => array('controleur' => 'controleurCritiquer', 'vue' => 'vueCritiquer'), 
-	'rechercher' => array('controleur' => 'controleurRechercher', 'vue' => 'vueRechercher')
+	'importer' => array('controleur' => 'controleurImporter', 'vue' => 'vueImporter'), 
+	'modifier' => array('controleur' => 'controleurModifier', 'vue' => 'vueModifier'),
+	'creer' => array('controleur' => 'controleurCreer', 'vue' => 'vueCreer')
 );
 
 ?>

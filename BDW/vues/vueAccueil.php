@@ -12,52 +12,51 @@ if ($nb <= 0) {
             <?= $message; ?>
         </p>
     </div>
-
-
-    <h2>Top 5 chanson ecoute : </h2>
+    <h2>Top 1 chansons by plays</h2>
     <ul>
-        <?php foreach ($chanson5 as $chanson) { ?>
-        <li>
-            <?= $chanson['title'] ?>
-        </li>
-        <?php } ?>
+        <?php foreach ($top1 as $top1C) { ?>
+            <li><?= $top1C['title'] ?></li>
+            <?php } ?>
+    </ul>
+    <h2>Top 1 artist by plays</h2>
+    <ul>
+        <?php foreach ($top1 as $top1A) { ?>
+            <li><?= $top1A['artist'] ?></li>
+            <?php } ?>
+    </ul>
+    <h2>Top 1 album by plays</h2>
+    <ul>
+        <?php foreach ($top1 as $top1Al) { ?>
+            <li><?= $top1Al['album'] ?></li>
+            <?php } ?>
+    </ul>
+   
+    <h2>Top 5 chansons by plays</h2>
+    <ul>
+        <?php foreach ($chansons as $chanson) { ?>
+            <li><?= $chanson['title'] ?></li>
+            <?php } ?>
     </ul>
 
-    <h2>Top 5 genres ecoute : </h2>
+    <h2>Top 5 artist by plays</h2>
     <ul>
-        <?php foreach ($genres5 as $genre) { ?>
-        <li>
-            <?= $genre['genre'] ?>
-        </li>
-        <?php } ?>
-    </ul>
-    <h2>Top 5 artist ecoute : </h2>
-    <ul>
-        <?php foreach ($groupe5 as $artist) { ?>
-        <li>
-            <?= $artist['artist'] ?>
-        </li>
-        <?php } ?>
+        <?php foreach ($chansons as $artist) { ?>
+            <li><?= $artist['artist'] ?></li>
+            <?php } ?>
     </ul>
 
-    <h2>Top 5 plus recente chanson </h2>
+    <h2>Top 5 Album by plays</h2>
     <ul>
-        <?php foreach ($recentChanson5 as $recentChanson) { ?>
-        <li>
-            <?= $recentChanson['title'] ?>
-        </li>
-        <?php } ?>
+        <?php foreach ($chansons as $album) { ?>
+            <li><?= $album['album'] ?></li>
+            <?php } ?>
     </ul>
-    <h2>Top 1 album</h2>
+
+    <h2>Top 5 Genres </h2>
     <ul>
-        <li>
-            <?= $album1?>
-        </li>
+        <?php foreach ($genres as $genre) { ?>
+            <li><?= $genre['genre'] ?></li>
+            <?php } ?>
     </ul>
-    <h2>Top 1 chanson</h2>
-    <ul>
-        <li>
-            <?= $chanson1?>
-        </li>
-    </ul>
+
 </main>
