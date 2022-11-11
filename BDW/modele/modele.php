@@ -29,7 +29,7 @@ function countInstances($connexion, $nomTable) {
 	return -1;  // valeur négative si erreur de requête (ex, $nomTable contient une valeur qui n'est pas une table)
 }
 function getInstances($connexion, $nomTable) {
-	$requete = "SELECT * FROM $nomTable ORDER BY artist";
+	$requete = "SELECT * FROM $nomTable";
 	$res = mysqli_query($connexion, $requete);
 	$instances = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $instances;
@@ -48,10 +48,23 @@ function getInstancesTop($connexion, $nomTable) {
 	return $instances;
 }
 function insertValue($connexion, $titre, $dates, $duree, $nomFichier, $groupes, $genres) {
-	$requete = "INSERT INTO songs100 VALUES($titre, NULL, $groupes, NULL, $dates, $genres, NULL, $duree, $nomFichier, NULL, NULL, NULL, NULL)";
+	$requete = "INSERT INTO songs2000 VALUES($titre, NULL, $groupes, NULL, $dates, $genres, NULL, $duree, $nomFichier, NULL, NULL, NULL, NULL)";
 	$res = mysqli_query($connexion, $requete);
 	return $res;
 }
-
+function getGenres($connexion, $genre) {
+	$genre = mysqli_real_escape_string($connexion, $genre); // sécurisation de $nomSerie
+	$requete = "SELECT * FROM songs2000 WHERE genre = '". $genre . "'";
+	$res = mysqli_query($connexion, $requete);
+	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
+	return $results;
+}
+function getGroupes($connexion, $groupe) {
+	$groupe = mysqli_real_escape_string($connexion, $groupe); // sécurisation de $nomSerie
+	$requete = "SELECT * FROM songs2000 WHERE artist = '". $groupe . "'";
+	$res = mysqli_query($connexion, $requete);
+	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
+	return $results;
+}
 
 ?>

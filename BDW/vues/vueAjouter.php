@@ -12,13 +12,13 @@
     <input type = "text" name="nomFichier" id="nomFichier" placeholder = "Nom de Fichier" value ="A remplir" required>
     <br> 
     <select name="groupe" id="groupe" placeholder = "Groupe" >
-    <?php foreach ($songs100 as $groupe) { ?>
+    <?php foreach ($songs2000 as $groupe) { ?>
             <option value =<?= $groupe['artist'] ?>><?= $groupe['artist'] ?></option>
             <?php } ?>
     </select>
     <br>
     <select name="genres" id="genres" placeholder = "Genres">
-    <?php foreach ($songs100 as $genre) { ?>
+    <?php foreach ($songs2000 as $genre) { ?>
             <option value =<?= $genre['genre'] ?>><?= $genre['genre'] ?></option>
             <?php } ?>
     </select>

@@ -10,7 +10,8 @@ $routes = array(
 	'ajouter' => array('controleur' => 'controleurAjouter', 'vue' => 'vueAjouter'),
 	'importer' => array('controleur' => 'controleurImporter', 'vue' => 'vueImporter'), 
 	'modifier' => array('controleur' => 'controleurModifier', 'vue' => 'vueModifier'),
-	'creer' => array('controleur' => 'controleurCreer', 'vue' => 'vueCreer')
+	'creer' => array('controleur' => 'controleurCreer', 'vue' => 'vueCreer'),
+	'afficher' => array('controleur' => 'controleurAfficher', 'vue' => 'vueAfficher')
 );
 
 ?>

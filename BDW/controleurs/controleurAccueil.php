@@ -2,18 +2,18 @@
 
 $message = "";
 //count chansons dans la table
-$nb = countInstances($connexion, "songs100");
+$nb = countInstances($connexion, "songs2000");
 
 
-$chansons = getInstances5($connexion, "songs100");
+$chansons = getInstances5($connexion, "songs2000");
 if($chansons == null || count($chansons) ==0) {
     $message .= "No chanson";
 }
-$genres = getInstances5($connexion, "songs100");
+$genres = getInstances5($connexion, "songs2000");
 if($genres == null || count($genres) == 0) {
     $message .= "No genres";
 }
-$top1 = getInstancesTop($connexion, "songs100");
+$top1 = getInstancesTop($connexion, "songs2000");
 if($top1 == null || count($top1) == 0) {
     $message .= "No top ";
 }
