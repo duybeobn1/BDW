@@ -11,5 +11,5 @@
 			<?= $nomSite ?>
 		</em>
 	</span>
-	<span>VU Anh Duy <br> DINH Son-Christophe</span>
+	<span>VU Anh Duy</span>
 </footer>
