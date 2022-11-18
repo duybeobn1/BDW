@@ -9,7 +9,7 @@ footer {
     padding: 1em 0;
 }
 header {
-    background-color: #FF9900;
+    background-color: #333333;
     text-align: center;
     border-radius: 1em;
 }
@@ -35,7 +35,7 @@ header {
 
 nav {
     flex: 2;
-    background-color: #b59ff7;
+    background-color: #121212;
     padding-left: 1em;
     padding-right: 1em;
     margin-left: 2em;
@@ -43,25 +43,25 @@ nav {
 }
 
 nav a {
-    color: #0000FF;
+    color: #656565;
     text-decoration: underline;
 }
 
 nav a:visited {
-    color: #0000FF;
+    color: #656565;
     text-decoration: none;
 }
 
 main {
     flex: 10;
-    background-color: #EEEEEE;
+    background-color: #9e9e9e;
     padding-left: 6em;
 }
 
 footer {
     display: flex;
     justify-content: space-around;
-    background-color: #669933;
+    background-color: #333333;
     border-radius: 1em;
 }
 img { 
