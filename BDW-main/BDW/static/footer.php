@@ -11,5 +11,5 @@
 			<?= $nomSite ?>
 		</em>
 	</span>
-	<span>VU Anh Duy</span>
+	<span>VU Anh Duy</span> 
 </footer>

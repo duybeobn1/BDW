@@ -11,7 +11,7 @@ $routes = array(
 	'importer' => array('controleur' => 'controleurImporter', 'vue' => 'vueImporter'), 
 	'modifier' => array('controleur' => 'controleurModifier', 'vue' => 'vueModifier'),
 	'creer' => array('controleur' => 'controleurCreer', 'vue' => 'vueCreer'),
-	'afficher' => array('controleur' => 'controleurAfficher', 'vue' => 'vueAfficher')
-);
-
+	'afficher' => array('controleur' => 'controleurAfficher','vue' => 'vueAfficher'),
+	'gerer' => array('controleur' => 'controleurGerer','vue' => 'vueGerer'),
+)
 ?>

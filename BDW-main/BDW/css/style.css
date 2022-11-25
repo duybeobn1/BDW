@@ -81,3 +81,7 @@ img {
 img:hover { 
     opacity: 1;
 }
+nav ul li {
+    margin : 20px
+}
+
