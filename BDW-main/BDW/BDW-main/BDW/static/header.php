@@ -6,7 +6,7 @@
 			<img src="img/icon.png" width="50%" height="50%">
 		</a>
 	</div>
-	<h1>My Playlist</h1>
+	<h1>MyPlaylist</h1>
 
 	<strong>
 		<?= $baseline ?>
