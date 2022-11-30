@@ -1,29 +1,50 @@
-<h2>Ajouter nouvelle version</h2>
+<link rel="stylesheet" href="css/creer.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-<form method = "post">
-    <label for="informations"> Informations de version </label>
-    <br>
-    <input type = "text" name="titre" id="titre" placeholder = "Titre" value ="A remplir">
-    <br>
-    <input type = "text" name="dates" id="dates" placeholder = "Dates" value ="A remplir" required>
-    <br>
-    <input type = "text" name="duree" id="duree" placeholder = "Durée" value ="A remplir" required>
-    <br>
-    <input type = "text" name="nomFichier" id="nomFichier" placeholder = "Nom de Fichier" value ="A remplir" required>
-    <br> 
-    <select name="groupe" id="groupe" placeholder = "Groupe" >
-    <?php foreach ($songs2000 as $groupe) { ?>
-            <option value =<?= $groupe['artist'] ?>><?= $groupe['artist'] ?></option>
-            <?php } ?>
-    </select>
-    <br>
-    <select name="genres" id="genres" placeholder = "Genres">
-    <?php foreach ($arrayGenres as $genre) { ?>
-            <option value =<?= $genre?>><?= $genre?></option>
-            <?php } ?>
-    </select>
-    <br>
-    <input type="submit" name="boutonValider" id="boutonValider" value="Ajouter"/>
-</form><?php if(isset($message)) { ?>
-	<p style="background-color: yellow;"><?= $message ?></p>
-<?php } ?>
+<div class="container p-5 my-5 border bg-dark text-white">
+        <h2>Ajouter nouvelle version</h2>
+</div>
+
+<form method="post" class="container mt-3">
+        
+        <div class="mb-3">
+        <label for="Titre" class="form-label"> Titre de Chanson </label>
+                <input type="text" name="titre" id="titre" placeholder="Titre" class="form-control">
+        </div>
+        <div class="mb-3">
+        <label for="dates" class="form-label"> Dates de creation de Chanson </label>
+                <input type="text" name="dates" id="dates" placeholder="Dates" class="form-control">
+        </div>
+        <div class="mb-3">
+        <label for="duree" class="form-label"> Duree de Chanson </label>
+                <input type="text" name="duree" id="duree" placeholder="Durée" class="form-control" required>
+        </div>
+        <div class="mb-3">
+        <label for="nomFichier" class="form-label">Nom de Fichier de Chanson</label>
+                <input type="text" name="nomFichier" id="nomFichier" placeholder="Nom de Fichier" class="form-control"
+                        required>
+        </div>
+        <label for="groupe" class="form-label">Artist de Chanson </label>
+        <select name="groupe" id="groupe" placeholder="Groupe" class="form-select mb-3">
+                <?php foreach ($songs2000 as $groupe) { ?>
+                <option value=<?= $groupe['artist'] ?>><?= $groupe['artist'] ?>
+                </option>
+                <?php } ?>
+        </select>
+        <label for="genres" class="form-label">Genres de Chanson </label>
+        <select name="genres" id="genres" placeholder="Genres" class="form-select mb-3">
+                <?php foreach ($arrayGenres as $genre) { ?>
+                <option value=<?= $genre['genre'] ?>><?= $genre['genre'] ?>
+                </option>
+                <?php } ?>
+        </select>
+
+        <input type="submit" name="boutonValider" id="boutonValider" value="Ajouter" class="btn btn-success"/>
+        
+</form>
+<?php if (isset($message)) { ?>
+<p style=" background-color: yellow;">
+        <?= $message ?>
+                </p>
+                <?php } ?>

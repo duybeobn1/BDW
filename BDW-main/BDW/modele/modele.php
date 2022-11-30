@@ -53,9 +53,17 @@ function getInstancesTop($connexion, $nomTable)
 }
 function insertValue($connexion, $titre, $dates, $duree, $nomFichier, $groupes, $genres)
 {
-	$requete = "INSERT INTO Version VALUES(NULL, '$titre', $dates, $duree, '$groupes', '$genres', '$nomFichier')";
+
+	$requete = "INSERT INTO Version VALUES(NULL,'$titre', $dates, $duree, '$nomFichier', '$groupes', '$genres')";
 	$res = mysqli_query($connexion, $requete);
 	return $res;
+}
+function getTitre($connexion, $titre){
+	$titre = mysqli_real_escape_string($connexion, $titre);
+	$requete = "SELECT * FROM Version WHERE titre = '".$titre."'";
+	$res = mysqli_query($connexion, $requete);
+	$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+	return $result;
 }
 function getGenres($connexion, $genre)
 {
@@ -68,7 +76,7 @@ function getGenres($connexion, $genre)
 function getGroupes($connexion, $groupe)
 {
 	$groupe = mysqli_real_escape_string($connexion, $groupe); // sécurisation de $nomSerie
-	$requete = "SELECT * FROM songs2000 WHERE artist = '" . $groupe . "'";
+	$requete = "SELECT * FROM Groupe WHERE nom = '" . $groupe . "'";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $results;
@@ -129,7 +137,7 @@ function insertListe($connexion, $nom, $duree, $genre)
 }
 function insertIntoListe($connexion,$idL, $idC, $nom, $genre)
 {
-	$requete = "INSERT INTO Liste_Chanson VALUES($idL, $idC,'$nom','$genre')";
+	$requete = "INSERT INTO Liste_Chanson VALUES($idL, $idC,'$nom', '$genre')";
 	$res = mysqli_query($connexion, $requete);
 	return $res;
 }
@@ -183,5 +191,12 @@ function deleteChanson($connexion, $id) {
 	$requete = "DELETE FROM Liste_Chanson WHERE idC = $id";
 	$res = mysqli_query($connexion, $requete);
 	return $res;
+}
+function getNomChansonDansListe($connexion, $id, $nom) {
+	$nom = mysqli_real_escape_string($connexion, $nom); 
+	$requete = "SELECT * FROM Liste_Chanson l LEFT JOIN Version v ON l.idC = v.idC WHERE l.idL = $id AND l.nom = '$nom'";
+	$res = mysqli_query($connexion, $requete);
+	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
+	return $results;
 }
 ?>

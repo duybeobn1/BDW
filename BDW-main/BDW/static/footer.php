@@ -12,5 +12,5 @@
 		</em>
 	</span>
 	<span>VU Anh Duy</span> 
-	<span>DINH Son-Christophe</span>
+	<span>DINH Son Christophe</span>
 </footer>
