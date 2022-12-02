@@ -53,15 +53,14 @@ if (isset($_POST['boutonValider'])) {
                 }
             } else if ($_POST['prefere'] == '4eme') {
                 if ($count > 1) {
-                    $ran = rand(0,2000);
+                    $ran = rand(0, 2000);
                     $insertion2 = insertIntoListe($connexion, $id, $playcount[$ran]['idC'], $playcount[$ran]['titre'], $playcount[$ran]['genre']);
                     $count = $count - $playcount[$ran]['durée'] / 60;
                     $updateDuree += $playcount[$ran]['durée'] / 60;
                 }
             }
-            updateDureeDansListe($connexion,$nom, $updateDuree); 
-        }
-        else { // genre != 0
+            updateDureeDansListe($connexion, $nom, $updateDuree);
+        } else { // genre != 0
             $genre = ucfirst(trim($genrePrefere));
             $playcount_genre = getTablesGenres($connexion, $genre, 'playcount');
             $lastplayed_genre = getTablesGenres($connexion, $genre, 'lastplayed');
@@ -89,13 +88,13 @@ if (isset($_POST['boutonValider'])) {
             }
             if ($_POST['prefere'] == '4eme') {
                 if ($count > 1) {
-                    $ran = rand(0,2000);
+                    $ran = rand(0, 2000);
                     $insertion2 = insertIntoListe($connexion, $id, $playcount_genre[$ran]['idC'], $playcount_genre[$ran]['titre'], $playcount_genre[$ran]['genre']);
                     $count = $count - $playcount_genre[$ran]['durée'] / 60;
                     $updateDuree += $playcount_genre[$ran]['durée'] / 60;
                 }
             }
-            updateDureeDansListe($connexion,$nom, $updateDuree); 
+            updateDureeDansListe($connexion, $nom, $updateDuree);
         }
     }
 }

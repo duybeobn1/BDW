@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="css/creer.css" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<p class="m-4 p-3 border bg-dark text-white" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    En train de jouer : Liste <?= $nom ?>
+</p>
 <table class="table table-striped table-dark table-bordered" style="text-align:center;">
     <thread class="thread-dark">
         <tr>
@@ -19,7 +20,7 @@
             <?= $i + 1 ?>
         </th>
         <td>
-            <?= $Chanson[$i]['nom'] ?>
+            <?= $Chanson[$i]['titre'] ?>
         </td>
         <td>
             <?= $Chanson[$i]['genre'] ?>
@@ -58,7 +59,8 @@
         </div>
         <div class="mb-3">
             <label for="nomFicher" class="form-label">Indiquer le nom de fichier de la Chanson</label>
-            <input type="text" name="nomFicher" id="nomFicher" placeholder="Nom de Ficher" required class="form-control"> 
+            <input type="text" name="nomFicher" id="nomFicher" placeholder="Nom de Ficher" required
+                class="form-control">
         </div>
         <div class="mb-3">
             <label for="groupe" class="form-label">Indiquer le groupe de la Chanson</label>
@@ -72,8 +74,8 @@
             Liste</button>
     </form>
 </div>
-<?php if (isset($message)) { ?>
-<p style="background-color: red;" class="mt-3">
+<?php if ($message != "") { ?>
+<p class="m-4 p-3 border bg-dark text-white">
     <?= $message ?>
 </p>
 <?php } ?>

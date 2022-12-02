@@ -1,4 +1,5 @@
 <?php
+$message = "";
 $nom = $_GET['nom'];
 $liste = getListe($connexion, $nom);
 $Chanson = getChansonDansListe($connexion, $liste[0]['idL']);
@@ -45,25 +46,23 @@ if (isset($_POST['boutonAjouter'])) {
         $temp = $liste[0]['duree'] + $duree / 60;
         updateDureeDansListe($connexion, $titre, $temp);
         header("Refresh:1");
-    
+
     } else {
-        $compare = getNomChansonDansListe($connexion,$liste[0]['idL'],$titre);
-        if(!$compare) {
+        $compare = getNomChansonDansListe($connexion, $liste[0]['idL'], $titre);
+        if (!$compare) {
             $insert = insertIntoListe($connexion, $liste[0]['idL'], countInstances($connexion, 'Version'), $titre, $genre);
             $temp = $liste[0]['duree'] + $duree / 60;
             updateDureeDansListe($connexion, $titre, $temp);
             header("Refresh:1");
-        }
-        else {
-           if($compare['durée'] == $duree&&$compare['groupe']==$groupe&&$compare['dates']==$dates) {
-            $message = "Deja dans votre Liste";
-           }
-           else {
-            $insert = insertIntoListe($connexion, $liste[0]['idL'], countInstances($connexion, 'Version'), $titre, $genre);
-            $temp = $liste[0]['duree'] + $duree / 60;
-            updateDureeDansListe($connexion, $titre, $temp);
-            header("Refresh:1");
-           }
+        } else {
+            if ($compare['durée'] == $duree && $compare['groupe'] == $groupe && $compare['dates'] == $dates) {
+                $message = "Deja dans votre Liste";
+            } else {
+                $insert = insertIntoListe($connexion, $liste[0]['idL'], countInstances($connexion, 'Version'), $titre, $genre);
+                $temp = $liste[0]['duree'] + $duree / 60;
+                updateDureeDansListe($connexion, $titre, $temp);
+                header("Refresh:1");
+            }
         }
     }
 

@@ -13,5 +13,6 @@ $routes = array(
 	'creer' => array('controleur' => 'controleurCreer', 'vue' => 'vueCreer'),
 	'afficher' => array('controleur' => 'controleurAfficher','vue' => 'vueAfficher'),
 	'gerer' => array('controleur' => 'controleurGerer','vue' => 'vueGerer'),
+	'comparer' => array('controleur' => 'controleurComparer', 'vue' => 'vueComparer'),
 )
 ?>

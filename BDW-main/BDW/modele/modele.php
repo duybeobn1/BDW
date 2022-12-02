@@ -43,7 +43,8 @@ function getInstances5($connexion, $nomTable)
 	$instances = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $instances;
 }
-function getAlbum($connexion, $album) {
+function getAlbum($connexion, $album)
+{
 	$album = mysqli_real_escape_string($connexion, $album);
 	$requete = "SELECT * FROM Version WHERE album = '" . $album . "'";
 	$res = mysqli_query($connexion, $requete);
@@ -180,7 +181,10 @@ function getTablesGenres($connexion, $genre, $attribute)
 }
 function getChansonDansListe($connexion, $id)
 {
-	$requete = "SELECT * FROM Liste_Chanson l LEFT JOIN Version v ON l.idC = v.idC WHERE l.idL = $id";
+	$requete = " SELECT DISTINCT a.nom as nomListe, a.idL, b.idC, b.nom as titre, c.groupe, c.dates, c.genre, c.album, c.durée
+	FROM Liste a , Liste_Chanson b, Version c 
+	WHERE a.idL = b.idL AND b.idC = c.idC
+	HAVING a.idl = $id";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $results;

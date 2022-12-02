@@ -7,10 +7,10 @@ if ($version == null || count($version) == 0) {
 $arrayGenres = getInstances($connexion, "Genre");
 $groupeS = getInstances($connexion, "Groupe");
 if (isset($_POST['boutonValider'])) {
-    if(!$_POST['titre']) {
+    if (!$_POST['titre']) {
         $_POST['titre'] = uniqid();
     }
-    if(!$_POST['dates']) {
+    if (!$_POST['dates']) {
         $_POST['dates'] = '';
     }
     $genre = $_POST['genres'];

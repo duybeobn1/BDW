@@ -1,4 +1,4 @@
 <?php
-$nomSite = "Music Searching";
-$baseline = "Search Anything For Music";
+$nomSite = "MyPlaylist";
+$baseline = "Ecoutez vos meilleures chansons";
 ?>
