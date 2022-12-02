@@ -8,7 +8,7 @@
 <div class="container">
     <form method="post">
         <div class="container">
-            <h3 class="mb-3">Bonjour User, Continue Ta Chanson</h3>
+            <h3 class="mb-3">Bonjour, démarrez votre session d'écoute </h3>
             <div class="row mb-1">
                 <div class="col-sm-4">
                     <div class="card h-75">
@@ -100,13 +100,13 @@
                     </div>
                 </div>
                 <div class="container ">
-                    <h3 class="mb-3">Decouvrir...</h3>
+                    <h3 class="mb-3">Découvrir...</h3>
                     <div class="row mt-4">
                         <div class="col-sm-2 text-center">
                             <div class="card" data-bs-toggle="collapse" href="#top5Groupe" aria-expanded="false"
                                 aria-controls="top5Groupe">
                                 <div class="card-body">
-                                    <h5 class="card-title">Top 5 Artist Plus Ecoutes</h5>
+                                    <h5 class="card-title">Top 5 des artistes les plus écoutés</h5>
                                     <p class="card-text">
                                     </p>
                                 </div>
@@ -116,7 +116,7 @@
                             <div class="card" data-bs-toggle="collapse" href="#top5Album" aria-expanded="false"
                                 aria-controls="top5Album">
                                 <div class="card-body">
-                                    <h5 class="card-title">Top 5 Albums Plus Ecoutes</h5>
+                                    <h5 class="card-title">Top 5 des albums les plus écoutés</h5>
                                     <p class="card-text">
                                     </p>
                                 </div>
@@ -126,7 +126,7 @@
                             <div class="card" data-bs-toggle="collapse" href="#top5Chanson" aria-expanded="false"
                                 aria-controls="top5Chanson">
                                 <div class="card-body">
-                                    <h5 class="card-title">Top 5 Chansons Plus Ecoutes</h5>
+                                    <h5 class="card-title">Top 5 des chansons les plus écoutés</h5>
                                     <p class="card-text">
                                     </p>
                                 </div>
@@ -201,7 +201,7 @@
                     </table>
                 </div>
                 <div class="container">
-                    <h3 class="mb-3 mt-3">Decouvrir des nouvelles albums</h3>
+                    <h3 class="mb-3 mt-3">Découvrez les nouveaux albums</h3>
                     <div class="row mt-4">
                         <div class="col-sm-2 text-center">
                             <div class="card" data-bs-toggle="collapse" href="#album1" aria-expanded="false"
