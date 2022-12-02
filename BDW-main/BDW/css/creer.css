@@ -1,10 +1,12 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
+
 h2 {
     color: green;
 }
+
 div h2 {
     justify-content: center;
     text-align: center;
@@ -13,7 +15,46 @@ div h2 {
 table {
     text-align: center;
 }
+
 div .container {
     justify-content: center;
 }
+
+.container .row .h-75 {
+    background-color: rgb(118, 109, 109);
+    color: white;
+    border-radius: 1rem;
+}
+.container .row .h-75 svg {
+    float: right;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgb(118, 109, 109);
+    color:rgb(118, 109, 109);
+    transition-duration: 0.5s;
+
+}
+.container .row .h-75 :hover {
+    background-color: rgb(177, 164, 164);
+    color: white;
+    border-radius: 1rem;
+    animation-delay: 0.5s;
+}
+.container .row .h-75 :hover svg {
+    background-color: rgb(5, 86, 37);
+    color: rgb(9, 6, 6);
+}
+.container .row .col-sm-2 .card{
+    background-color: rgb(46, 42, 42);
+    color: white;
+    border-radius: 1rem;
+    animation-delay: 0.5s;
+}
+.container .row .col-sm-2 .card :hover{
+    background-color: rgb(82, 76, 76);
+    color: white;
+    border-radius: 1rem;
+}
+
+
 

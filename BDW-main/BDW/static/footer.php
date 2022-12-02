@@ -5,9 +5,8 @@
 		<a href="https://perso.liris.cnrs.fr/fabien.duchateau/bdw" target="_blank" alt="Page BDW1">BDW - Base de
 			données et programmation web</a> - UCB Lyon 1
 	</span>
-
 	<span>
-		<?php print date("Y"); ?> - <em>
+		<?php echo date("Y"); ?> - <em>
 			<?= $nomSite ?>
 		</em>
 	</span>

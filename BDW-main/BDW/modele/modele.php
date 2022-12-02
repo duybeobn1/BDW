@@ -38,29 +38,30 @@ function getInstances($connexion, $nomTable)
 }
 function getInstances5($connexion, $nomTable)
 {
-	$requete = "SELECT * FROM $nomTable ORDER BY playcount LIMIT 5";
+	$requete = "SELECT * FROM $nomTable ORDER BY playcount DESC LIMIT 5";
 	$res = mysqli_query($connexion, $requete);
 	$instances = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $instances;
+}
+function getAlbum($connexion, $album) {
+	$album = mysqli_real_escape_string($connexion, $album);
+	$requete = "SELECT * FROM Version WHERE album = '" . $album . "'";
+	$res = mysqli_query($connexion, $requete);
+	$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
+	return $result;
 }
 
-function getInstancesTop($connexion, $nomTable)
-{
-	$requete = "SELECT * FROM $nomTable ORDER BY playcount LIMIT 1";
-	$res = mysqli_query($connexion, $requete);
-	$instances = mysqli_fetch_all($res, MYSQLI_ASSOC);
-	return $instances;
-}
 function insertValue($connexion, $titre, $dates, $duree, $nomFichier, $groupes, $genres)
 {
 
-	$requete = "INSERT INTO Version VALUES(NULL,'$titre', $dates, $duree, '$nomFichier', '$groupes', '$genres')";
+	$requete = "INSERT INTO Version VALUES(NULL,'$titre', $dates, $duree, '$nomFichier', '$groupes', '$genres', '', 0, 0, 0, 0)";
 	$res = mysqli_query($connexion, $requete);
 	return $res;
 }
-function getTitre($connexion, $titre){
+function getTitre($connexion, $titre)
+{
 	$titre = mysqli_real_escape_string($connexion, $titre);
-	$requete = "SELECT * FROM Version WHERE titre = '".$titre."'";
+	$requete = "SELECT * FROM Version WHERE titre = '" . $titre . "'";
 	$res = mysqli_query($connexion, $requete);
 	$result = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $result;
@@ -83,9 +84,9 @@ function getGroupes($connexion, $groupe)
 }
 function copyDataVersion($connexion)
 {
-	$requete = "INSERT INTO Version(titre, dates, durée, nom_de_fichier, groupe, genre) 
-	SELECT songs2000.title, songs2000.year, songs2000.length, songs2000.filename, songs2000.artist, songs2000.genre 
-	FROM songs2000";
+	$requete = "INSERT INTO Version(titre, dates, durée, nom_de_fichier, groupe, genre, album, playcount, lastplayed ,skipcount, track ) 
+	SELECT dataset.songs2000.title, dataset.songs2000.year, dataset.songs2000.length, dataset.songs2000.filename, dataset.songs2000.artist, dataset.songs2000.genre , dataset.songs2000.album, dataset.songs2000.playcount, dataset.songs2000.lastplayed, dataset.songs2000.skipcount, dataset.songs2000.track
+	FROM dataset.songs2000";
 	$res = mysqli_query($connexion, $requete);
 	return $res;
 }
@@ -135,7 +136,7 @@ function insertListe($connexion, $nom, $duree, $genre)
 	$res = mysqli_query($connexion, $requete);
 	return $res;
 }
-function insertIntoListe($connexion,$idL, $idC, $nom, $genre)
+function insertIntoListe($connexion, $idL, $idC, $nom, $genre)
 {
 	$requete = "INSERT INTO Liste_Chanson VALUES($idL, $idC,'$nom', '$genre')";
 	$res = mysqli_query($connexion, $requete);
@@ -143,57 +144,63 @@ function insertIntoListe($connexion,$idL, $idC, $nom, $genre)
 }
 function getTablePlayCount($connexion)
 {
-	$requete = "SELECT titre, playcount, durée, idC, v.genre FROM songs2000 s LEFT JOIN Version v ON s.title = v.titre ORDER BY playcount DESC";
+	$requete = "SELECT titre, playcount, durée, idC, genre FROM Version ORDER BY playcount DESC";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $results;
 }
 function getTableLastPlayed($connexion)
 {
-	$requete = "SELECT titre, playcount, durée, idC, v.genre FROM songs2000 s LEFT JOIN Version v ON s.title = v.titre ORDER BY lastplayed ASC";
+	$requete = "SELECT titre, playcount, durée, idC, genre FROM Version ORDER BY lastplayed ASC";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $results;
 }
 function getTableSkipCount($connexion)
 {
-	$requete = "SELECT titre, playcount, durée, idC, v.genre FROM songs2000 s LEFT JOIN Version v ON s.title = v.titre ORDER BY playcount DESC";
+	$requete = "SELECT titre, playcount, durée, idC, genre FROM Version";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $results;
 }
 
-function updateDureeDansListe($connexion, $nom, $duree) {
+function updateDureeDansListe($connexion, $nom, $duree)
+{
 	$requete = "UPDATE Liste SET duree = $duree WHERE nom = '$nom'";
 	$res = mysqli_query($connexion, $requete);
 	return $res;
 }
-function getTablesGenres($connexion, $genre, $attribute) {
-	$genre = mysqli_real_escape_string($connexion, $genre); 
-	$requete = "SELECT titre, playcount, durée, idC, v.genre FROM songs2000 s LEFT JOIN Version v ON s.title = v.titre WHERE v.genre LIKE '%$genre%' ORDER BY $attribute DESC";
+function getTablesGenres($connexion, $genre, $attribute)
+{
+	$genre = mysqli_real_escape_string($connexion, $genre);
+	$requete = "SELECT titre, playcount, durée, idC, genre FROM Version WHERE genre LIKE '%$genre%' ORDER BY $attribute DESC";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $results;
 }
-function getChansonDansListe($connexion, $id) {
+function getChansonDansListe($connexion, $id)
+{
 	$requete = "SELECT * FROM Liste_Chanson l LEFT JOIN Version v ON l.idC = v.idC WHERE l.idL = $id";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $results;
 }
-function countChansonListe($connexion, $id) {
+function countChansonListe($connexion, $id)
+{
 	$requete = "SELECT COUNT(*) as num FROM Liste_Chanson WHERE idL = $id";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);
 	return $results;
 }
-function deleteChanson($connexion, $id) {
+function deleteChanson($connexion, $id)
+{
 	$requete = "DELETE FROM Liste_Chanson WHERE idC = $id";
 	$res = mysqli_query($connexion, $requete);
 	return $res;
 }
-function getNomChansonDansListe($connexion, $id, $nom) {
-	$nom = mysqli_real_escape_string($connexion, $nom); 
+function getNomChansonDansListe($connexion, $id, $nom)
+{
+	$nom = mysqli_real_escape_string($connexion, $nom);
 	$requete = "SELECT * FROM Liste_Chanson l LEFT JOIN Version v ON l.idC = v.idC WHERE l.idL = $id AND l.nom = '$nom'";
 	$res = mysqli_query($connexion, $requete);
 	$results = mysqli_fetch_all($res, MYSQLI_ASSOC);

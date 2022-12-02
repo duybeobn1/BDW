@@ -8,22 +8,12 @@ main,
 footer {
     padding: 1em 0;
 }
+
 header {
     color: #fefefe;
-    background-color: #282828;
+    background-color: #232323;
     display: flex;
-    margin-left: 150px;
     justify-content: space-around;
-}
-
-
-#paragDescription {
-    margin: 1em;
-    color: red;
-    font-style: italic;
-    justify-content: center;
-    border-left-color: black;
-    font-size: 20px;
 }
 
 #divCentral {
@@ -36,7 +26,7 @@ header {
 }
 
 nav {
-    position: fixed;
+    display: fixed;
     left: 0;
     top: 0;
     bottom: 0;
@@ -68,17 +58,9 @@ footer {
     display: flex;
     justify-content: space-around;
     background-color: #282828;
-    margin-left: 150px;
     color: #fefefe;
 
 }
-img { 
-    opacity: 70%;
-    
-}
-img:hover { 
-    opacity: 1;
-}
-nav ul li {
-    margin : 20px
-}
+
+
+

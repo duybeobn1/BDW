@@ -25,7 +25,6 @@ $connexion = getConnexionBD(); // connexion à la BD
     <?php include('static/header.php'); ?>
     <div id="divCentral">
 		<?php include('static/menu.php'); ?>
-		
 		<main>
 		<?php
 		$controleur = 'controleurAccueil'; // par défaut, on charge accueil.php

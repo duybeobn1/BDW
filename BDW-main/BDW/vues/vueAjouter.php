@@ -27,8 +27,8 @@
         </div>
         <label for="groupe" class="form-label">Artist de Chanson </label>
         <select name="groupe" id="groupe" placeholder="Groupe" class="form-select mb-3">
-                <?php foreach ($songs2000 as $groupe) { ?>
-                <option value=<?= $groupe['artist'] ?>><?= $groupe['artist'] ?>
+                <?php foreach ($groupeS as $groupe) { ?>
+                <option value=<?= $groupe['nom'] ?>><?= $groupe['nom'] ?>
                 </option>
                 <?php } ?>
         </select>
@@ -44,7 +44,7 @@
         
 </form>
 <?php if (isset($message)) { ?>
-<p style=" background-color: yellow;">
+<p style=" background-color: yellow;" class="mt-3">
         <?= $message ?>
                 </p>
                 <?php } ?>

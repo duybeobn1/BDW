@@ -1,11 +1,11 @@
 <?php
 $message = "";
-$songs2000 = getInstances($connexion, "songs2000");
-if ($songs2000 == null || count($songs2000) == 0) {
+$version = getInstances($connexion, "Version");
+if ($version == null || count($version) == 0) {
     $message .= "No value";
 }
 $arrayGenres = getInstances($connexion, "Genre");
-
+$groupeS = getInstances($connexion, "Groupe");
 if (isset($_POST['boutonValider'])) {
     if(!$_POST['titre']) {
         $_POST['titre'] = uniqid();
@@ -29,9 +29,4 @@ if (isset($_POST['boutonValider'])) {
         $message = "Il y a deja ce chanson";
 }
 
-
-
-// $b = array_count_values($arrayGenres);
-// print_r($b);
-// echo count($arrayGenres);
 ?>
